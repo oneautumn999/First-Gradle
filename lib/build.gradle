@@ -34,9 +34,26 @@ java {
 }
 
 task helloJayJay {
-    description = "Prints a hello message"
+    description = "Menjalankan Hello JayJay Dalam Custom Task"
+    doLast {
+        println "Hello JayJay!"
+    }
+}
+
+task greetingTask {
+    description = "Menjalankan Hello Gradle Dengan Input Nama"
     String nama = project.hasProperty('name') ? project.property('nama') : 'Gradle User'
     doLast {
         println "Hello, $nama! Welcome to Gradle World!"
+    }
+}
+
+task sumANumber {
+    description = "Penjumlahan"
+    int a = project.hasProperty('a') ? project.property('a').toInteger() : 0
+    int b = project.hasProperty('b') ? project.property('b').toInteger() : 0
+    doLast {
+        int sum = a + b 
+        println "Hasil = $sum"
     }
 }
